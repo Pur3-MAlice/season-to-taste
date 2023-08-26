@@ -110,4 +110,5 @@ I picked the hero images to portray the page's theme to the user.
 # Credits
 
 * General references:
+* For Django Models resources I used (Geeks For Geeks: Django Model)[https://www.geeksforgeeks.org/django-models/?ref=lbp]
    
