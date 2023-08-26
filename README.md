@@ -128,9 +128,6 @@ To help me visualize a typical user journey around the site, I used [draw.io](ht
 ### **Database Schema**
 Below is my initial plan for my database tables:  
 
- 
-Within my models.py, I also have a function using the @receiver decorator to create a PinnedJobs object whenever a user registers; the object is user-specific and links a user to a many2many list of the user's pinned jobs within the PinnedJobs table. Later this can be further developed into a user profile.
-
 ## **Surface**
 ### **Color scheme:**
 The final list of colors used has been placed in the below [color grid]() to check contrast scores.
