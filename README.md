@@ -95,6 +95,13 @@ WHY I BUILT/ MADE THIS WEBSITE
 ## **Strategy** 
 ### **Site Aims:**
 ### **Research:**
+One of the first things I did when building the plan for this website was research. I wanted my website, not only to be useable and have a solid logic base but for it also to look modern and inviting. So part of my Planning Phase was not only wireframing, building a logic flow chart and a database schema. But also looking at websites with similar aims, and discussing with friends and family how they use recipe websites. What do they like, what do they dislike, and how can I emulate the good parts whilst removing the annoyance?  
+Here are some of the sites I used for inspiration for the design of Season To Taste:
+* [thehappyfoodie](https://thehappyfoodie.co.uk/)
+* [cookbookmanager](https://cookbookmanager.com/pricing)
+* [Resturant Website Templates from Wix](https://www.wix.com/website/templates/html/restaurants-food)
+  
+  
   
 ## **Structure**   
 To help me visualize a typical user journey around the site, I used [draw.io](https://app.diagrams.net/) to help me plan out the various routes a user could take through the site. This flow changed slightly throughout development. However, in general, it guided the process.
