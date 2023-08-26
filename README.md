@@ -8,6 +8,8 @@ WHY I BUILT/ MADE THIS WEBSITE
 # **Table Of Contents**
 * [**Season-to-Taste**](#season-to-taste)
 * [**Planning Phase**](#planning-phase)
+  * [**Site Aims**](#site-aims)
+  * [**Researcj**](#research)
   * [**Structure**](#structure)
   * [**Skeleton**](#skeleton)
   * [**Surface**](#surface)
