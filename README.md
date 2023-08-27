@@ -62,7 +62,8 @@ To help me visualize a typical user journey around the site, I used [draw.io](ht
 
 
 ### **Database Schema**
-Below is my initial plan for my database tables:  
+Below is my initial database schema to map out the relations between users, recipes, comments and categories (also known as tags). This is a rough idea of what the database will look like in general, but at this point in the planning phase, I understand that this is subject to change. So I will also be showing a representation of the Database here once the project is ready for deployment.
+![Color gird]()
 
 ## **Surface**
 ### **Color scheme:**
