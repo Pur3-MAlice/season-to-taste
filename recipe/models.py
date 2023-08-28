@@ -37,9 +37,6 @@ class Recipe(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     rate = models.ManyToManyField(User, related_name='rate')
-    saved = models.ForeignKey(
-        Saved, on_delete=models.CASCADE, related_name="saved"
-        )
 
     class Meta:
         ordering = ['-created_on']
@@ -67,10 +64,7 @@ class Comment(models.Model):
 
 class Saved(models.Model):
     id = models.AutoField(primary_key=True)
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name="recipe"
-        )
-    # user? FK     
-
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 # class Rating ???
