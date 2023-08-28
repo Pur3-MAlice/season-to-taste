@@ -21,8 +21,8 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="recipe"
         )
-    categories = models.ForeignKey(
-        Categories, on_delete=models.CASCADE, related_name="categories"
+    categories = models.ManyToManyField(
+        Categories, related_name="recipes"
         )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -41,7 +41,7 @@ class Recipe(models.Model):
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
-    Recipe = models.ForeignKey(
+    recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments"
         )
     name = models.CharField(max_length=80)
@@ -56,23 +56,24 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-class Categories():
+class Categories(models.Model):
     id = models.AutoField(primary_key=True)
-    Recipe = models.ForeignKey(
+    recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="recipe"
         )
-    season = models.CharField(max_length=80)
-    diet = models.CharField(max_length=80)
+    season = models.CharField(max_length=15)
+    diet = models.CharField(max_length=15)
 
     def __str__(self):
         return f"{self.diet}, {self.season}"
 
 
-class Saved():
+class Saved(models.Model):
     id = models.AutoField(primary_key=True)
-    Recipe = models.ForeignKey(
+    recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="recipe"
         )
+    # user? FK     
 
-    def __str__(self):
-        return "Saved"
+
+# class Rating ???
