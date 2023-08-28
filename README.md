@@ -9,7 +9,7 @@ WHY I BUILT/ MADE THIS WEBSITE
 * [**Season-to-Taste**](#season-to-taste)
 * [**Planning Phase**](#planning-phase)
   * [**Site Aims**](#site-aims)
-  * [**Researcj**](#research)
+  * [**Research**](#research)
   * [**Structure**](#structure)
   * [**Skeleton**](#skeleton)
   * [**Surface**](#surface)
@@ -48,10 +48,6 @@ To help me visualize a typical user journey around the site, I used [draw.io](ht
   
 * As an **Admin** I can...
  
-* As an **Unregistered User** I can... 
-  
-* As a **Registered User** I can... 
- 
 * As a **Site User** I can...
   
 
@@ -63,8 +59,8 @@ To help me visualize a typical user journey around the site, I used [draw.io](ht
 
 ### **Database Schema**
 Below is my initial database schema to map out the relations between users, recipes, comments and categories (also known as tags). This is a rough idea of what the database will look like in general, but at this point in the planning phase, I understand that this is subject to change. So I will also be showing a representation of the Database here once the project is ready for deployment.
-![Color gird]()
-
+![Color grid]()
+ 
 ## **Surface**
 ### **Color scheme:**
 The final list of colors used has been placed in the below [color grid]() to check contrast scores.
@@ -73,8 +69,10 @@ The final list of colors used has been placed in the below [color grid]() to che
 
 ### **Typography**:
 
-# **Agile Development Process**
-  
+# **Building Process Process**
+  Using a Kanban Board system. And Something similar to sprints. 
+
+  When it came to actually putting my Database Schema into reality a few things changed. Such as Saved and Categories. Plus I figured out I would need to make a model purely for the rating system I wanted to put in place. MVP this could just be likes, but to differentiate from the base of this project (which was taken from Code Insitutes 'Django Blog App') I wanted to add in this rating system that would calculate a recipes' popularity. This would also be the building block of the carousels on the recipe search page. I plan to have 'Diet' and even 'In Season' Caraousels on the recipe search page so that site users can easily see recipes, the rating system will determine which recipes show up on these carousels. Or So I Plan... (Famous last words of a coder).
 # **Features**
 ## **Site Navigation**
 ### **Navbar**
