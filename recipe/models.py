@@ -6,6 +6,15 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+class Categories(models.Model):
+    id = models.AutoField(primary_key=True)
+    season = models.CharField(max_length=15)
+    diet = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"{self.diet}, {self.season}"
+
+
 class Recipe(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
@@ -54,18 +63,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-
-class Categories(models.Model):
-    id = models.AutoField(primary_key=True)
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name="recipe"
-        )
-    season = models.CharField(max_length=15)
-    diet = models.CharField(max_length=15)
-
-    def __str__(self):
-        return f"{self.diet}, {self.season}"
 
 
 class Saved(models.Model):
