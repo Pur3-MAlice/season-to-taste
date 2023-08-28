@@ -7,6 +7,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Recipe(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
@@ -39,7 +40,7 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
-    id
+    id = models.AutoField(primary_key=True)
     Recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments"
         )
@@ -56,7 +57,7 @@ class Comment(models.Model):
 
 
 class Categories():
-    id
+    id = models.AutoField(primary_key=True)
     Recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="recipe"
         )
@@ -68,7 +69,7 @@ class Categories():
 
 
 class Saved():
-    id
+    id = models.AutoField(primary_key=True)
     Recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="recipe"
         )
