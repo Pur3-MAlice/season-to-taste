@@ -15,13 +15,20 @@ RATE = (
 )
 
 
-class Categories(models.Model):
+class Diet(models.Model):
     id = models.AutoField(primary_key=True)
-    season = models.CharField(max_length=100)
-    diet = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, default="Uncategorised")
 
     def __str__(self):
-        return f"{self.diet}, {self.season}"
+        return self.name
+
+
+class Season(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, default="Uncategorised")
+
+    def __str__(self):
+        return self.name
 
 
 class Recipe(models.Model):
@@ -29,7 +36,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     ingredients = models.TextField()
-    steps = models.TextField()
+    content = models.TextField()
     calories = models.IntegerField(default=0)
     fat = models.IntegerField(default=0)
     protein = models.IntegerField(default=0)
@@ -37,21 +44,26 @@ class Recipe(models.Model):
     servs = models.IntegerField(default=0)
     featured_image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="recipe"
-        )
-    categories = models.ManyToManyField(
-        Categories, related_name="recipes"
+        User, on_delete=models.CASCADE, related_name="recipes"
         )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    rate = models.ManyToManyField(User, related_name='rate')
+    Diet = models.ForeignKey(
+        Diet, on_delete=models.CASCADE,
+        related_name="recipes")
+    Season = models.ForeignKey(
+        Season, on_delete=models.CASCADE,
+        related_name="recipes")
+    # rate = models.ManyToManyField(
+    #     Categories, related_name="recipes"
+    #     )
 
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return self.title + " | " + str(self.author)
 
 
 class Comment(models.Model):
@@ -77,8 +89,8 @@ class Saved(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-class Rating(models.Model):
-    id = models.AutoField(primary_key=True)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(choices=RATE, default=0)
+# class Rating(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     rating = models.IntegerField(choices=RATE, default=0)
