@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
-    'recipe',
+    'cookbook',
 ]
 
 MIDDLEWARE = [

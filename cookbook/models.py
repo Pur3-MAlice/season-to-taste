@@ -16,16 +16,14 @@ RATE = (
 
 
 class Diet(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100, default="Uncategorised")
+    name = models.TextField(max_length=70, default="Uncategorised")
 
     def __str__(self):
         return self.name
 
 
 class Season(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100, default="Uncategorised")
+    name = models.TextField(max_length=70, default="Uncategorised")
 
     def __str__(self):
         return self.name
@@ -49,10 +47,10 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    Diet = models.ForeignKey(
+    diet = models.ForeignKey(
         Diet, on_delete=models.CASCADE,
         related_name="recipes")
-    Season = models.ForeignKey(
+    season = models.ForeignKey(
         Season, on_delete=models.CASCADE,
         related_name="recipes")
     # rate = models.ManyToManyField(
