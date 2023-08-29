@@ -5,11 +5,20 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+RATE = (
+    (0, "N/A"),
+    (1, "Bad"),
+    (2, "Okay"),
+    (3, "Good"),
+    (4, "Great"),
+    (5, "Excellent")
+)
+
 
 class Categories(models.Model):
     id = models.AutoField(primary_key=True)
-    season = models.CharField(max_length=15)
-    diet = models.CharField(max_length=15)
+    season = models.CharField(max_length=100)
+    diet = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.diet}, {self.season}"
@@ -19,8 +28,8 @@ class Recipe(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    content = models.TextField()
     ingredients = models.TextField()
+    steps = models.TextField()
     calories = models.IntegerField(default=0)
     fat = models.IntegerField(default=0)
     protein = models.IntegerField(default=0)
@@ -67,4 +76,9 @@ class Saved(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-# class Rating ???
+
+class Rating(models.Model):
+    id = models.AutoField(primary_key=True)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(choices=RATE, default=0)
