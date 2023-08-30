@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-pur3malice-seasontotast-nuops7killp.ws-eu104.gitpod.io',
-    'season-to-taste-02b520ddba15.herokuapp.com']
+    'seasontotaste-bebe6953f889.herokuapp.com']
 
 
 # Application definition
